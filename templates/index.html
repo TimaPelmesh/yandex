@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карьера</title>
+    <link rel="icon" href="/static/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yandex+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="branding">
+                <span class="yandex-text">Яндекс</span>
+                <a href="/" class="logo">
+                    <img src="/static/logo.png" alt="Логотип">
+                </a>
+                <span class="career-text">Карьера</span>
+            </div>
+            <div class="nav-links">
+                <a href="#faq-section" class="nav-link">FAQ</a>
+            </div>
+            <div class="profile-avatar">
+                <img src="/static/avatarka.png" alt="Профиль">
+            </div>
+        </div>
+    </header>
+
+    <!-- Новая секция с синим фоном, как на Яндекс Образование -->
+    <section class="hero-banner">
+        <div class="banner-content">
+            <h1>Персональная дорожная карта <span class="highlight-blue">для вашего</span></h1>
+            <h2>профессионального развития</h2>
+            <p>Заполните мини-анкету ниже и получите соответствующие рекомендации</p>
+            <!-- Убраны декоративные элементы (полоска и точки) -->
+        </div>
+        <div class="banner-background"></div>
+        <!-- Добавляем декоративные элементы на фон -->
+        <div class="decoration-circle circle-1"></div>
+        <div class="decoration-circle circle-2"></div>
+        <div class="decoration-line line-1"></div>
+        <div class="decoration-line line-2"></div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="search-form" id="search-form">
+                <div class="input-group">
+                    <label for="profession">Профессия или вакансия</label>
+                    <input type="text" id="profession" placeholder="Например: Frontend-разработчик">
+                </div>
+                <div class="input-group">
+                    <label for="region">Регион</label>
+                    <input type="text" id="region" placeholder="Например: Москва или Россия">
+                </div>
+                
+                <!-- Поле для персональных данных -->
+                <div class="input-group">
+                    <label for="user-info">Расскажите немного о себе <span class="optional">(необязательно)</span></label>
+                    <textarea id="user-info" placeholder="Опишите ваш опыт, навыки, интересы и предпочтения" rows="3"></textarea>
+                </div>
+                
+                <!-- Поле для медицинских особенностей -->
+                <div class="input-group">
+                    <label for="medical-info">Медицинские особенности <span class="optional">(необязательно)</span></label>
+                    <textarea id="medical-info" placeholder="Укажите медицинские особенности, которые стоит учесть при составлении карьерного плана" rows="2"></textarea>
+                </div>
+                
+                <button id="generate-button" class="shine-button">Составить карьерный план</button>
+            </div>
+
+            <div class="results" id="results">
+                <div class="loader hidden" id="loader">
+                    <div class="spinner"></div>
+                    <p>Анализируем информацию о профессии...</p>
+                </div>
+                
+                <div class="roadmap hidden" id="roadmap">
+                    <h3>Дорожная карта -> <span id="profession-title"></span> (<span id="region-title"></span>)</h3>
+                    
+                    <!-- Персональные рекомендации (новая секция) -->
+                    <div class="roadmap-section personal-recommendations no-icon" id="personal-recommendations-section">
+                        <h4 class="no-icon">Персональные рекомендации</h4>
+                        <div id="personal-recommendations"></div>
+                    </div>
+                    
+                    <!-- Контейнер для двухколоночного отображения навыков -->
+                    <div class="skills-container">
+                        <div class="roadmap-section">
+                            <h4>Необходимые профессиональные навыки</h4>
+                            <ul id="hard-skills"></ul>
+                        </div>
+                        
+                        <div class="roadmap-section">
+                            <h4>Необходимые гибкие навыки</h4>
+                            <ul id="soft-skills"></ul>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-section">
+                        <h4>План обучения</h4>
+                        <div id="learning-plan"></div>
+                    </div>
+                    
+                    <div class="roadmap-section">
+                        <h4>Тенденции будущего</h4>
+                        <ul id="future-insights"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Обновленная секция FAQ в стиле Яндекса -->
+    <div class="faq-section" id="faq-section">
+        <div class="container">
+            <h2>Популярные вопросы</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как формируется дорожная карта?</div>
+                <div class="faq-answer">
+                    <p>Наш ИИ-ассистент анализирует в режиме онлайн различные источники (вакансии, профессиональные ресурсы, образовательные платформы) для сбора актуальной информации о требуемых навыках и квалификациях для конкретной профессии в выбранном регионе.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Как выбираются образовательные ресурсы?</div>
+                <div class="faq-answer">
+                    <p>Для каждого этапа обучения система подбирает наиболее релевантные образовательные ресурсы: бесплатные курсы, статьи, видео и другие материалы, которые наилучшим образом соответствуют выбранной профессии и конкретным темам обучения.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Учитывается ли региональная специфика?</div>
+                <div class="faq-answer">
+                    <p>Да, система учитывает географический контекст и адаптирует рекомендации в зависимости от выбранного региона. Требования к специалистам могут отличаться в разных городах и регионах.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Можно ли сохранить или поделиться созданной дорожной картой?</div>
+                <div class="faq-answer">
+                    <p>В текущей версии сервиса эта функция недоступна, но мы работаем над возможностью сохранения, экспорта и публикации дорожных карт. Эта функциональность появится в ближайших обновлениях.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Подходит ли сервис для выбора первой профессии?</div>
+                <div class="faq-answer">
+                    <p>Яндекс.Карьера может стать отличным помощником при выборе первой профессии, так как предоставляет информацию о необходимых навыках, возможностях обучения и перспективах. Однако рекомендуем также консультироваться с карьерными специалистами и исследовать различные источники информации.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>
+                Концепт "Яндекс Карьера" - Иванов Тимур 2025 
+                <a href="https://t.me/tima_pelmeshka" target="_blank" class="tg-link" title="Связаться с создателем">
+                    Написать мне @tima_pelmeshka
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>
+        // Обработка взаимодействия с FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            // Функциональность для FAQ секции
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const faqAnswers = document.querySelectorAll('.faq-answer');
+
+            faqQuestions.forEach((question, index) => {
+                question.addEventListener('click', () => {
+                    // Сначала закрываем все открытые ответы, если они есть
+                    faqQuestions.forEach((q, i) => {
+                        if (i !== index && q.classList.contains('active')) {
+                            q.classList.remove('active');
+                            faqAnswers[i].classList.remove('active');
+                            faqAnswers[i].querySelector('p').style.opacity = '0';
+                            faqAnswers[i].querySelector('p').style.transform = 'translateY(-10px)';
+                        }
+                    });
+                    
+                    // Переключаем активный класс для текущего вопроса
+                    question.classList.toggle('active');
+                    
+                    // Переключаем активный класс для ответа
+                    const answer = faqAnswers[index];
+                    answer.classList.toggle('active');
+                    
+                    // Если ответ активен, устанавливаем его содержимому opacity 1
+                    if (answer.classList.contains('active')) {
+                        answer.querySelector('p').style.opacity = '1';
+                        answer.querySelector('p').style.transform = 'translateY(0)';
+                    } else {
+                        answer.querySelector('p').style.opacity = '0';
+                        answer.querySelector('p').style.transform = 'translateY(-10px)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
